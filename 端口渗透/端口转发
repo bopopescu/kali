@@ -1,0 +1,2 @@
+netsh interface portproxyadd v4tov4  listenport=445 connectaddress=外网ip connectport=8080
+

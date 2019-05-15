@@ -1,0 +1,32 @@
+被动信息收集：
+IP段
+域名
+邮件地址
+文档图片数据
+公司地址
+公司组织架构
+电话，传真
+人员名职务
+系统架构
+公开的商业信息
+
+
+dns：
+nslookup sina.com -q any 8.8.8.8
+>set type=mx
+
+dig sina.com any @8.8.8.8
+dig +noall +answer txt chaos VERSION.BIND @8.8.8.8 查询dns服务器bind信息
+dig +trace www.baidu.com  迭代查询
+dig @ns1.sina.com sina.com axfr   (host -l -T sina.com  ns1.sina.com   全区域传输)查询区域传输
+
+
+proxychains theharvester -d microsoft.com -l 500 -b google -f myresults.html
+
+maltego  综合信息收集
+
+exiftool， foca(win)图片信息
+
+recon-ng web信息搜集框架
+
+netdiscover -p (被动arp监听)

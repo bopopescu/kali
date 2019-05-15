@@ -1,0 +1,11 @@
+常规信息搜集:
+/etc/resolv.conf
+/etc/passwd
+/etc/shadow
+whoami, who -a
+ifconfig -a
+iptables -L -n
+netstat -rn
+uname -a
+ps -aux
+dpkg -l |head

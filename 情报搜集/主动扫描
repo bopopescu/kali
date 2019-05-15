@@ -1,0 +1,97 @@
+主动信息收集:
+
+局域网发现：
+
+nmap -sn 192.168.2.0/24   （发送arp）
+
+
+
+网络发现：
+linux ttl为64
+windos ttl 128
+路由追踪：
+traceroute baidu.com 
+ping -R baidu.com
+
+scapy
+sr1(IP(dst="192.168.1.1")/ICMP(), timeout=5)
+
+nmap -sn 24.22.44.22  （发送ICMP）
+
+fping -g -A 192.168.3.0/24
+-f 1.txt -A 
+
+hping3 192.168.2.33 --icmp -c 2
+for addr in $(seq 1 254);do hping3 192.168.2.$addr --icmp -c 2 >> 1.txt & done
+
+
+
+传输层发现：
+TCP:
+ACP--RST
+SYN--SYN/ACK、RST
+UDP:
+ICMP
+
+
+
+端口扫描：
+nmap -sS -Pn -p --open -T3 -sV 192.168.2.11
+
+hping -c 2 -S --spoof 192.168.3.22 -p ++1 192.168.3.21
+-c --count 指定数据包的次数
+-i --interval 指定发包间隔为多少毫秒，如-i m10：表示发包间隔为10毫秒
+-n --numeric 指定以数字形式输出,表示不进行名称解析。
+-V --verbose 详细模式,一般显示很多包信息。
+-0 --rawip 裸IP方式,使用RAWSOCKET方式。
+-1 --icmp ICMP 模式
+-2 --udp UDP 模式
+-8 --scan 扫描模式. (例: hping --scan 1-30,70-90 -S www.target.host)
+-9 --listen 监听模式，会接受指定的信息。侦听指定的信息内容。
+
+
+SNMP扫描
+onesixtyone 12.33.33.11 public
+
+snmpwalk 12.22.33.44 -c public -v 2c
+
+snmpcheck -t 11.22.33.44
+
+
+SMB扫描:
+SMB1 ---- win2000,xp, win2003
+SMB2 ---- win visfa, win2008
+SMB2.1 ---- win7, win 2008R2
+SMB3 ---- win08, win2012	
+
+
+nmap -v -p 139,445 --script=smb-os-discovery.nse 11.22.33.44
+nmap -v -p 139,445 --script=smb-check-vulns.nse --script-args=unsafe=1 11.22.44.33
+
+nbtscan -r 192.168.2.0/24 (跨网段扫描)
+
+
+
+SMTP扫描:
+nmap -p25 --script=smtp-enum-users.nse 192.168.2.49
+
+
+负载均衡扫描：
+lbd baidu.com
+
+
+nmap：
+-iL 1.txt
+-iR 5 随机扫描5台
+--exclude 192.168.2.33 192.168.2.0/24 
+-sL 192.168.2.0/20 子网掩码计算
+-sn 不做端口扫描
+-Pn 强制进行主机发现
+-PS/PA/PU/PY
+-P0 IP ping
+-n 不做dns解析
+--dns-servers	
+
+nmap -f -sS -T3 -A -sV -v -Pn --scan-delay 3s -D 218.92.219.24,218.92.219.25,218.92.219.26,218.92.21.24 192.168.2.49
+
+ 

@@ -1,0 +1,8 @@
+vi ~/bash.bashrc
+export ALL_PROXY=socks5://127.0.0.1:1080
+source ~/.bashrc
+
+
+
+设置代理链：
+proxychains 

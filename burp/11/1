@@ -1,0 +1,8 @@
+ alias burp='java -Xbootclasspath/p:/root/robot/burp/11/Loader.jar -jar /root/robot/burp/11/burpsuite_pro_v1.7.34.jar'
+
+burpsuite:
+代理软件客户端:
+hosts指向burp,options-->hostname resolution设置真实dns解析
+
+添加证书:
+访问http://burp

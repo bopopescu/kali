@@ -1,0 +1,1 @@
+skipfish 1.1.1.1 -S minimal.wl -l 20 -m 10 --auth-from http://ww/login.php --auth-user admin --auth-pass admin --auth-verify-url http://ww/user.php -C "u=admin" -C "p=pwd" 	-o test

